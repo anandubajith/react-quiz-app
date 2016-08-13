@@ -15,7 +15,10 @@ var App = React.createClass({
 		};
 	},
 	progress: function(score) {
-		this.setState({ score: this.state.score + score, current: this.state.current + 1 })
+		this.setState({
+			score: this.state.score + score,
+			current: this.state.current + 1
+		});
 	},
 	render: function() {
 		var question = this.props.questions[this.state.current];
@@ -47,4 +50,7 @@ var App = React.createClass({
 	}
 });
 
-ReactDOM.render(<App questions={questions} />, document.getElementById('app'));
+ReactDOM.render(
+	<App questions={questions} />,
+	document.getElementById('app')
+);
