@@ -1,9 +1,5 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: __dirname + '/app/index.html',
-  filename: 'index.html',
-  inject: 'body'
-});
+var webpack = require('webpack');
 
 module.exports = {
   entry: [
@@ -18,5 +14,22 @@ module.exports = {
       {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
     ]
   },
-  plugins: [HTMLWebpackPluginConfig]
+
+  plugins:[
+  	new HtmlWebpackPlugin({
+	  template: __dirname + '/app/index.html',
+	  filename: 'index.html',
+	  inject: 'body'
+	}), 
+    new webpack.DefinePlugin({
+      'process.env':{
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress:{
+        warnings: true
+      }
+    })
+  ]
 };
