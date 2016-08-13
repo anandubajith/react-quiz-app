@@ -47,4 +47,4 @@ var App = React.createClass({
 	}
 });
 
-ReactDOM.render(<App questions={questions}/>, document.getElementById('app'));
+ReactDOM.render(<App questions={questions} />, document.getElementById('app'));
