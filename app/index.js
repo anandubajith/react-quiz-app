@@ -3,32 +3,8 @@ var ReactDOM = require('react-dom');
 
 var ResultPage = require('./components/resultPage');
 var QuizComponent = require('./components/quizContainer');
+var AppBar = require('./components/appBar');
 var questions = require('./questions.js')
-
-
-var AppBar = React.createClass({
-	render: function() {
-		return (
-			<div className="mui-appbar">
-	        <div className="mui-container-fluid">
-	        <table width="100%">
-	        	<tbody>
-		          <tr style={ {"verticalAlign" : "middle" }}>
-		            <td className="mui--appbar-height mui--text-display2">Quiz App</td>
-		            
-		            <td className="mui--appbar-height" style={ {textAlign: 'right'} }>
-		            Question { this.props.current + 1} out of { this.props.total }
-		            </td>
-		          </tr>
-	          </tbody>
-	        </table>
-	        </div>
-	      </div>
-		);
-	}
-});
-
-
 
 
 var App = React.createClass({
