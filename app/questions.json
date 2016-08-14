@@ -1,4 +1,4 @@
-module.exports = [
+[
    {
       "question":" Expand CDMA ?",
       "options":[
@@ -29,4 +29,4 @@ module.exports = [
       ],
       "correct":"a"
    }
-];
+]

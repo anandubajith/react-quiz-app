@@ -4,15 +4,35 @@ var ReactDOM = require('react-dom');
 var ResultPage = require('./components/resultPage');
 var QuizComponent = require('./components/quizContainer');
 var AppBar = require('./components/appBar');
-var questions = require('./questions.js')
 
+var questionsUrl = '/questions.json';
 
 var App = React.createClass({
 	getInitialState: function() {
 		return {
 			score: 0,
-			current: 0
+			current: 0,
+			questions: []
 		};
+	},
+	componentDidMount: function() {
+		var self = this;
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open('get', this.props.questionsUrl, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					self.setState(
+						{ questions: JSON.parse(xhr.responseText) }
+					);
+				} else {
+					console.log("Error ");
+				}
+			}
+		};
+		xhr.send();
+
 	},
 	progress: function(score) {
 		this.setState({
@@ -21,11 +41,11 @@ var App = React.createClass({
 		});
 	},
 	render: function() {
-		var question = this.props.questions[this.state.current];
-		if ( this.props.questions.length > this.state.current ) {
+		var question = this.state.questions[this.state.current];
+		if ( this.state.questions.length > this.state.current ) {
 			return (
 				<div>
-					<AppBar current={this.state.current} total={ this.props.questions.length }/>
+					<AppBar current={this.state.current} total={ this.state.questions.length }/>
 	 				<div className="container">
 						<QuizComponent question={ question.question}
 									options={ question.options }
@@ -39,10 +59,10 @@ var App = React.createClass({
 			return (
 				<div>
 					<AppBar current={this.state.current - 1}
-							total={ this.props.questions.length } />
+							total={ this.state.questions.length } />
 	    			<div className="container">
 						<ResultPage score={this.state.score}
-									total={this.props.questions.length} />
+									total={this.state.questions.length} />
 					</div>
 				</div>
 			);
@@ -51,6 +71,6 @@ var App = React.createClass({
 });
 
 ReactDOM.render(
-	<App questions={questions} />,
+	<App questionsUrl={questionsUrl} />,
 	document.getElementById('app')
 );
