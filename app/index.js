@@ -41,12 +41,21 @@ var App = React.createClass({
 		});
 	},
 	render: function() {
+		var style = {
+			height: "calc( 100vh - 64px)",
+			display: "flex",
+			flexDirection: "column",
+			alignItems: "center",
+			justifyContent: "center",
+			maxWidth: "1000px",
+			margin: "auto"
+		}
 		var question = this.state.questions[this.state.current];
 		if ( this.state.questions.length > this.state.current ) {
 			return (
 				<div>
 					<AppBar current={this.state.current} total={ this.state.questions.length }/>
-	 				<div className="container">
+	 				<div className="container" style={style}>
 						<QuizComponent question={ question.question}
 									options={ question.options }
 									correct={ question.correct }
@@ -60,7 +69,7 @@ var App = React.createClass({
 				<div>
 					<AppBar current={this.state.current - 1}
 							total={ this.state.questions.length } />
-	    			<div className="container">
+	    			<div className="container" style={style}>
 						<ResultPage score={this.state.score}
 									total={this.state.questions.length} />
 					</div>

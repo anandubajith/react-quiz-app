@@ -16,7 +16,7 @@ var QuizComponent = React.createClass({
 		return (
 			<div>
 				<h1 className="mui--text-display3"> { this.props.question } </h1>
-				<div className="options">
+				<div className="options" style={{ "margin" : "2em 0" }}>
 					{ options }
 				</div>
 			</div>
