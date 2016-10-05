@@ -1,7 +1,12 @@
 {
   "name": "react-quiz",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.0.3",
+  "license": "MIT",
+  "author": "Anandu B Ajith <reach2anandu@gmail.com> (http://anandu.net)",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/anandubajith/react-quiz-app.git"
+  },
   "devDependencies": {
     "react-scripts": "0.6.0"
   },
