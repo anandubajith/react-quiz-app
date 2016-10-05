@@ -1,25 +1,18 @@
 {
-  "name": "react-quiz-app",
-  "version": "0.0.2",
-  "description": "A quiz app made in react",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack-dev-server",
-    "production": "webpack -p"
-  },
-  "author": "Anandu B Ajith <reach2anandu@gmail.com> (http://anandu.net)",
-  "license": "MIT",
-  "dependencies": {
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0"
-  },
+  "name": "react-quiz",
+  "version": "0.0.1",
+  "private": true,
   "devDependencies": {
-    "babel-core": "^6.13.2",
-    "babel-loader": "^6.2.4",
-    "babel-preset-react": "^6.11.1",
-    "copy-webpack-plugin": "^3.0.1",
-    "html-webpack-plugin": "^2.22.0",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "react-scripts": "0.6.0"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
